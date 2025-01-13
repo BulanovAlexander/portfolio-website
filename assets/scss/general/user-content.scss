@@ -1,0 +1,132 @@
+@use './variables' as *;
+
+h1 {
+	margin: 0;
+	font-size: 64px;
+	font-weight: 800;
+	line-height: 1;
+
+	@media screen and (min-width: $md) {
+		font-size: 80px;
+	}
+
+	@media screen and (min-width: $lg) {
+		font-size: 96px;
+	}
+
+	&:not(:first-child) {
+		margin-top: 36px;
+	}
+
+	&:not(:last-child) {
+		margin-bottom: 36px;
+	}
+}
+
+h2 {
+	margin: 0;
+	font-size: 48px;
+	font-weight: 800;
+	line-height: 1.1;
+
+	&:not(:first-child) {
+		margin-top: 16px;
+	}
+
+	&:not(:last-child) {
+		margin-bottom: 16px;
+	}
+}
+
+h3 {
+	margin: 0;
+	font-size: 32px;
+	font-weight: 800;
+	line-height: 1.25;
+
+	@media screen and (min-width: $lg) {
+		font-size: 36px;
+	}
+
+	&:not(:first-child) {
+		margin-top: 24px;
+	}
+
+	&:not(:last-child) {
+		margin-bottom: 24px;
+	}
+}
+
+p {
+	margin: 0;
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 24px;
+
+	@media screen and (min-width: $lg) {
+		font-size: 20px;
+		line-height: 26px;
+	}
+
+	&:not(:first-child) {
+		margin-top: 26px;
+	}
+
+	&:not(:last-child) {
+		margin-bottom: 26px;
+	}
+}
+
+a {
+	color: inherit;
+	text-decoration: underline;
+	font-weight: 800;
+	text-underline-offset: 4px;
+	cursor:
+		url('~/assets/images/cursor-pointer@1x.png') 15 10,
+		url('~/assets/images/cursor-pointer@2x.png') 15 10,
+		auto;
+}
+
+a:disabled {
+	cursor: image-set(url('~/assets/images/cursor@1x.png') 1x, url('~/assets/images/cursor@2x.png') 2x), auto;
+}
+
+img {
+	display: flex;
+	width: 100%;
+	height: auto;
+
+	&:not(:first-child) {
+		margin-top: 36px;
+	}
+
+	&:not(:last-child) {
+		margin-bottom: 36px;
+	}
+}
+
+ul,
+ol {
+	display: grid;
+	row-gap: 6px;
+	padding-left: 32px;
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 24px;
+
+	@media screen and (min-width: $lg) {
+		font-size: 20px;
+		line-height: 26px;
+	}
+}
+
+ul:not(:first-child),
+ol:not(:first-child) {
+	margin-top: 26px;
+}
+
+ul:not(:last-child),
+ol:not(:last-child) {
+	margin-bottom: 26px;
+}

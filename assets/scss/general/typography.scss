@@ -1,0 +1,85 @@
+@use './variables' as *;
+
+.typo-head {
+	font-size: 70px;
+	font-weight: 900;
+	line-height: 1;
+
+	@media screen and (min-width: $sm) {
+		font-size: 90px;
+	}
+
+	@media screen and (min-width: $md) {
+		font-size: 100px;
+	}
+
+	@media screen and (min-width: $lg) {
+		font-size: 110px;
+	}
+}
+
+.typo-subhead {
+	font-size: 28px;
+	font-weight: 800;
+	line-height: 32px;
+}
+
+.typo-h1 {
+	font-size: 70px;
+	font-weight: 800;
+	line-height: 1;
+
+	@media screen and (min-width: $md) {
+		font-size: 80px;
+	}
+
+	@media screen and (min-width: $lg) {
+		font-size: 96px;
+	}
+}
+
+.typo-h2 {
+	font-size: 48px;
+	font-weight: 800;
+	line-height: 1.1;
+}
+
+.typo-h3 {
+	font-size: 32px;
+	font-weight: 800;
+	line-height: 1.25;
+
+	@media screen and (min-width: $lg) {
+		font-size: 36px;
+	}
+}
+
+.typo-p1 {
+	font-size: 22px;
+	font-weight: 600;
+	line-height: 30px;
+}
+
+.typo-p2 {
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 24px;
+
+	@media screen and (min-width: $lg) {
+		font-size: 20px;
+		line-height: 26px;
+	}
+}
+
+.typo-p3 {
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 24px;
+}
+
+.typo-link {
+	color: var(--color-text);
+	text-decoration: underline;
+	cursor: image-set(url('~/assets/images/cursor-pointer@1x.png') 1x, url('~/assets/images/cursor-pointer@2x.png') 2x),
+		auto;
+}
