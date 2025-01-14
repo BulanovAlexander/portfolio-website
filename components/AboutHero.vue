@@ -45,8 +45,6 @@ const { renderBlock } = useDatoRender()
 <style lang="scss" scoped>
 .about-hero {
 	&__text {
-		text-align: justify;
-
 		.container {
 			@media screen and (max-width: $sm) {
 				padding: 0;
