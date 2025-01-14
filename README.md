@@ -1,3 +1,7 @@
+![Превью сайта](https://github.com/BulanovAlexander/portfolio-website/blob/main/public/site-preview.png?raw=true)
+
+[Посмотреть сайт вживую](https://alex-bulanov-portfolio-website.netlify.app)
+
 # Nuxt Minimal Starter
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
