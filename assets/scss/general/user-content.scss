@@ -27,7 +27,7 @@ h2 {
 	margin: 0;
 	font-size: 48px;
 	font-weight: 800;
-	line-height: 1.1;
+	line-height: 1;
 
 	&:not(:first-child) {
 		margin-top: 16px;
@@ -42,7 +42,7 @@ h3 {
 	margin: 0;
 	font-size: 32px;
 	font-weight: 800;
-	line-height: 1.25;
+	line-height: 1;
 
 	@media screen and (min-width: $lg) {
 		font-size: 36px;
@@ -69,11 +69,11 @@ p {
 	}
 
 	&:not(:first-child) {
-		margin-top: 26px;
+		margin-top: 20px;
 	}
 
 	&:not(:last-child) {
-		margin-bottom: 26px;
+		margin-bottom: 20px;
 	}
 }
 
@@ -123,10 +123,10 @@ ol {
 
 ul:not(:first-child),
 ol:not(:first-child) {
-	margin-top: 26px;
+	margin-top: 20px;
 }
 
 ul:not(:last-child),
 ol:not(:last-child) {
-	margin-bottom: 26px;
+	margin-bottom: 20px;
 }

@@ -33,7 +33,7 @@ const router = useRouter()
 					</template>
 
 					<template #default>
-						<div class="container">
+						<div class="user-container">
 							<DatocmsStructuredText class="user-content" :data="text" :render-block="renderBlock" />
 						</div>
 					</template>

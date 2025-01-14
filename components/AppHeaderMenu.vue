@@ -105,6 +105,7 @@ function handleMenuToggle(event: Event): void {
 		align-items: center;
 		height: 56px;
 		padding: 0 20px;
+		color: var(--color-text);
 		background-color: transparent;
 		transition-property: color, background-color;
 		transition-duration: 100ms;

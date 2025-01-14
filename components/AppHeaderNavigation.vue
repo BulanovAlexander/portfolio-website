@@ -89,11 +89,14 @@ function handleClickOutside(event: Event): void {
 
 	&__list {
 		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0;
 		padding: 0;
 		list-style: none;
 
 		@media screen and (min-width: $lg) {
-			display: flex;
+			flex-direction: row;
 			height: 100%;
 		}
 	}
