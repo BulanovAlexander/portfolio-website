@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { storeLayout } from '~/stores/storeLayout'
 
-const { copyright } = storeLayout()
+const { copyright } = storeToRefs(storeLayout())
 
-const copyText = computed<string>(() => `© ${new Date().getFullYear()} ${copyright}`)
+const copyText = computed<string>(() => `© ${new Date().getFullYear()} ${copyright.value}`)
 </script>
 
 <template>

@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { toHead } from 'vue-datocms'
 
-const { data, error } = await useAsyncData('home', () => $fetch('/api/home/'))
+const headers = useRequestHeaders(['cookie'])
+const { data, error } = await useAsyncData('home', () => $fetch('/api/home/', { headers }))
 
 if (error.value) {
 	throw createError({

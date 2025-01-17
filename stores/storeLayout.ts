@@ -19,18 +19,9 @@ export const storeLayout = defineStore('layout', {
 
 	actions: {
 		async fetch() {
-			const response: any = await useFetch(`/api/layout/`)
+			const { layout } = await $fetch('/api/layout/')
 
-			const { data, errors } = response.data.value
-
-			if (errors)
-				throw createError({
-					statusCode: 500,
-					statusMessage: errors.map((error: any) => error.message).join(', '),
-					fatal: true
-				})
-
-			const { navigation, copyright } = data.layout
+			const { navigation, copyright } = layout
 
 			this._navigation = navigation
 			this._copyright = copyright

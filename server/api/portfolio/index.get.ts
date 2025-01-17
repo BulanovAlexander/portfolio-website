@@ -9,10 +9,11 @@ export default defineEventHandler(async event => {
 	const query = getQuery(event)
 	const limit = Number(query.limit) || setup!.perPage
 	const skip = Number(query.page) ? limit * (Number(query.page) - 1) : 0
+	const locale = getCookie(event, 'i18n_redirected') || 'ru'
 
 	const graphqlQuery = `{
 	  	portfolioPage {
-			_seoMetaTags(locale: ru) {
+			_seoMetaTags(locale: ${locale}) {
 				content
 				tag
 				attributes
@@ -21,15 +22,15 @@ export default defineEventHandler(async event => {
 		_allProjectPostsMeta(filter: {}) {
 			count
 		}
-		allProjectPosts(first: ${limit}, skip: ${skip}) {
+		allProjectPosts(locale: ${locale}, first: ${limit}, skip: ${skip}) {
 			id
 			_createdAt
 			slug
 			title
-			description {
+			description(locale: ${locale}) {
 				value
 			}
-			categories {
+			categories(locale: ${locale}) {
 				id
 				label
 				value

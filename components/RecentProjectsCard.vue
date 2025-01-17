@@ -11,6 +11,7 @@ const props = defineProps<Props>()
 const { slug, title, description, preview } = props.project
 const panelHeaderTitle = computed<string>(() => `${slug}.html`)
 const linkTo = computed<string>(() => `/portfolio/${slug}/`)
+const { t } = useI18n()
 </script>
 
 <template>
@@ -26,7 +27,9 @@ const linkTo = computed<string>(() => `/portfolio/${slug}/`)
 		<template #default>
 			<h3 class="recent-project-card__title typo-h3">{{ title }}</h3>
 			<DatocmsStructuredText class="recent-project-card__text" :data="description" />
-			<NuxtLink class="recent-project-card__button button" :to="linkTo">Подробнее о проекте</NuxtLink>
+			<NuxtLink class="recent-project-card__button button" :to="linkTo">
+				{{ t('projectDetails') }}
+			</NuxtLink>
 		</template>
 	</WindowPanel>
 </template>

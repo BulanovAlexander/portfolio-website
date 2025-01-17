@@ -11,7 +11,7 @@ if (error.value) {
 	})
 }
 
-const { _seoMetaTags } = data.value.contactPage
+const { _seoMetaTags, hero } = data.value.contactPage
 
 useHead(() => {
 	if (!data.value) return {}
@@ -22,6 +22,6 @@ useHead(() => {
 
 <template>
 	<main>
-		<ContactFeedback />
+		<ContactHero :content="hero" />
 	</main>
 </template>

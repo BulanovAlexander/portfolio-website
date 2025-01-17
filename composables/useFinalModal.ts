@@ -1,16 +1,16 @@
 import { useModal, useModalSlot } from 'vue-final-modal'
 import { h } from 'vue'
 
-import AppModal from '~/components/AppModal.vue'
+import AppModal from '/components/AppModal.vue'
 
 export default function useUIModal() {
 	// const { closeAll } = useVfm()
 
-	function openSuccessModal() {
+	function openSuccessModal(t: (key: string) => string) {
 		const { open, close } = useModal({
 			component: AppModal,
 			attrs: {
-				title: 'Success',
+				title: `${t('successTitle')}`,
 				onClose: () => {
 					close()
 				}
@@ -28,14 +28,14 @@ export default function useUIModal() {
 								{
 									class: 'typo-h3'
 								},
-								[`Спасибо, что написали!`]
+								[`${t('successSendTitle')}`]
 							),
 							h(
 								'p',
 								{
 									class: 'typo-p2'
 								},
-								[`Ответ скоро появится в вашем почтовом ящике.`]
+								[`${t('successSendText')}`]
 							),
 							h(
 								'button',
@@ -43,7 +43,7 @@ export default function useUIModal() {
 									class: 'button',
 									onClick: () => close()
 								},
-								[`Закрыть`]
+								[`${t('close')}`]
 							)
 						]
 					)
@@ -54,11 +54,11 @@ export default function useUIModal() {
 		open()
 	}
 
-	function openFailureModal(error: any) {
+	function openFailureModal(t: (key: string) => string, error: any) {
 		const { open, close } = useModal({
 			component: AppModal,
 			attrs: {
-				title: 'Error',
+				title: t('failureTitle'),
 				onClose: () => {
 					close()
 				}
@@ -76,7 +76,7 @@ export default function useUIModal() {
 								{
 									class: 'typo-h3'
 								},
-								[`Error`]
+								[`${t('failureSendTitle')}`]
 							),
 							h(
 								'p',
@@ -91,7 +91,7 @@ export default function useUIModal() {
 									class: 'button',
 									onClick: () => close()
 								},
-								[`close`]
+								[`${t('close')}`]
 							)
 						]
 					)

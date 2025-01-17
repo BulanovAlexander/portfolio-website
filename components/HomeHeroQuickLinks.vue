@@ -10,6 +10,8 @@ interface Props {
 
 const props = defineProps<Props>()
 const { title, links } = props.content
+// 👇 Use Nuxt I18n's auto-imported composable
+const localePath = useLocalePath()
 </script>
 
 <template>
@@ -17,10 +19,12 @@ const { title, links } = props.content
 		<p class="quick-links__title typo-h3">{{ title }}</p>
 
 		<div class="quick-links__wrapper">
-			<NuxtLink v-for="link in links" :key="link.id" class="quick-links__link" :to="link.to"
-				>{{ link.label }}
-				<NuxtIcon class="quick-links__icon" name="arrow-top-right" filled />
-			</NuxtLink>
+			<template v-for="link in links" :key="link.id">
+				<NuxtLink v-if="link.to" class="quick-links__link" :to="localePath(link.to)"
+					>{{ link.label }}
+					<NuxtIcon class="quick-links__icon" name="arrow-top-right" filled />
+				</NuxtLink>
+			</template>
 		</div>
 	</div>
 </template>

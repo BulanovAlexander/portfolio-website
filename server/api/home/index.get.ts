@@ -2,15 +2,16 @@ export default defineEventHandler(async event => {
 	const runtimeConfig = useRuntimeConfig()
 	const datoCmsUrl = runtimeConfig.public.datoCmsUrl as string
 	const publishToken = runtimeConfig.public.datoCmsReadOnlyPublishToken as string
+	const locale = getCookie(event, 'i18n_redirected') || 'ru'
 
 	const graphqlQuery = `{
 		homePage {
-			_seoMetaTags(locale: ru) {
+			_seoMetaTags(locale: ${locale}) {
 				content
 				tag
 				attributes
 			}
-			hero {
+			hero(locale: ${locale}) {
 				title
 				text {
 					value
@@ -21,7 +22,7 @@ export default defineEventHandler(async event => {
 					to
 				}
 			}
-			quick {
+			quick(locale: ${locale}) {
 				title
 				links {
 					id
@@ -29,7 +30,7 @@ export default defineEventHandler(async event => {
 					to
 				}
 			}
-			recent {
+			recent(locale: ${locale}) {
 				title
 				projects {
 					id

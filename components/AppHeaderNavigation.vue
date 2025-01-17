@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { storeLayout } from '~/stores/storeLayout'
 
-const { navigation } = storeLayout()
-
+const { navigation } = storeToRefs(storeLayout())
+// 👇 Use Nuxt I18n's auto-imported composable
+const localePath = useLocalePath()
 function handleDropdownToggle(event: Event) {
 	const toggle = event.target as HTMLElement
 	const dropdown = toggle.closest('[data-header-dropdown]')
@@ -60,9 +61,9 @@ function handleClickOutside(event: Event): void {
 							</div>
 						</li>
 					</template>
-					<template v-else>
+					<template v-if="nav.to">
 						<li class="header-navigation__item">
-							<NuxtLink class="header-navigation__link header-navigation__link_lg" :to="nav.to">{{
+							<NuxtLink class="header-navigation__link header-navigation__link_lg" :to="localePath(nav.to)">{{
 								nav.label
 							}}</NuxtLink>
 						</li>

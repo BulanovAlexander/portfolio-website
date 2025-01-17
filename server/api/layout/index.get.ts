@@ -2,10 +2,11 @@ export default defineEventHandler(async event => {
 	const runtimeConfig = useRuntimeConfig()
 	const datoCmsUrl = runtimeConfig.public.datoCmsUrl as string
 	const publishToken = runtimeConfig.public.datoCmsReadOnlyPublishToken as string
+	const locale = getCookie(event, 'i18n_redirected') || 'ru'
 
 	const graphqlQuery = `{
 		layout {
-			navigation {
+			navigation(locale: ${locale}) {
 				id
 				label
 				to
@@ -15,7 +16,7 @@ export default defineEventHandler(async event => {
 					to
 				}
 			}
-			copyright
+			copyright(locale: ${locale})
 		}
     }`
 
@@ -31,5 +32,15 @@ export default defineEventHandler(async event => {
 		}
 	})
 
-	return response
+	const { data, errors } = response
+
+	if (errors) {
+		throw createError({
+			statusCode: 500,
+			statusMessage: errors.map((error: any) => error.message).join(', '),
+			fatal: true
+		})
+	}
+
+	return data
 })

@@ -11,6 +11,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const route = useRoute()
 const router = useRouter()
+const { t } = useI18n()
 
 const currentPage = computed<number>({
 	get() {
@@ -69,7 +70,7 @@ function handleChangePage(page: number): void {
 				href="#"
 				@click.prevent="handleChangePage(1)"
 			>
-				<span> Первая </span>
+				<span> {{ t('firstPage') }} </span>
 			</a>
 		</li>
 		<li class="ui-pagination__item ui-pagination__item_prev" :class="{ hidden: currentPage === 1 }">
@@ -80,7 +81,7 @@ function handleChangePage(page: number): void {
 				@click.prevent="handleChangePage(currentPage - 1)"
 			>
 				<NuxtIcon class="ui-pagination__icon" name="arrow-back" filled />
-				<span class="ui-pagination__label"> Предыдущая </span>
+				<span class="ui-pagination__label"> {{ t('previusPage') }} </span>
 			</a>
 		</li>
 
@@ -104,7 +105,7 @@ function handleChangePage(page: number): void {
 				href="#"
 				@click.prevent="handleChangePage(currentPage + 1)"
 			>
-				<span class="ui-pagination__label"> Следующая </span>
+				<span class="ui-pagination__label"> {{ t('nextPage') }} </span>
 				<NuxtIcon class="ui-pagination__icon" name="arrow-forward" filled />
 			</a>
 		</li>
@@ -115,7 +116,7 @@ function handleChangePage(page: number): void {
 				href="#"
 				@click.prevent="handleChangePage(pageTotal)"
 			>
-				<span> Последняя </span>
+				<span> {{ t('lastPage') }} </span>
 			</a>
 		</li>
 	</ul>

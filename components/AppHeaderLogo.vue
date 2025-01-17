@@ -1,8 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+// 👇 Use Nuxt I18n's auto-imported composable
+const localePath = useLocalePath()
+</script>
 
 <template>
 	<div class="header-logo">
-		<NuxtLink class="header-logo__link" to="/">
+		<NuxtLink class="header-logo__link" :to="localePath('/')">
 			<NuxtIcon class="header-logo__icon" name="logo" filled />
 		</NuxtLink>
 	</div>

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import * as Yup from 'yup'
 
+const { t } = useI18n()
+
 const emits = defineEmits<{
 	(e: 'submit-success'): void
 	(e: 'submit-failure', error: any): void
@@ -16,9 +18,9 @@ const formState = reactive({
 })
 
 const schema = Yup.object().shape({
-	name: Yup.string().trim().required('Обязательное поле'),
-	email: Yup.string().trim().email('Некорректный email').required('Обязательное поле'),
-	message: Yup.string().trim().required('Обязательное поле')
+	name: Yup.string().trim().required(t('requiredField')),
+	email: Yup.string().trim().email(t('incorrectEmail')).required(t('requiredField')),
+	message: Yup.string().trim().required(t('requiredField'))
 })
 
 async function handleSubmit(values: any, actions: any) {
@@ -39,12 +41,19 @@ async function handleSubmit(values: any, actions: any) {
 </script>
 
 <template>
-	<Form ref="formRef" class="feedback-contact-form" :validation-schema="schema" @submit="handleSubmit">
-		<div class="feedback-contact-form__wrapper">
+	<Form ref="formRef" class="contact-form" :validation-schema="schema" @submit="handleSubmit">
+		<div class="contact-form__wrapper">
 			<Field v-slot="{ field, meta, errorMessage }" v-model="formState.name" name="name">
-				<div class="feedback-contact-form__form-group form-group" :class="{ disabled: pending }">
-					<label class="form-label" for="name">Ваше имя</label>
-					<input id="name" v-bind="field" class="form-input" type="text" placeholder="ФИО" :disabled="pending" />
+				<div class="contact-form__form-group form-group" :class="{ disabled: pending }">
+					<label class="form-label" for="name">{{ t('nameField') }}</label>
+					<input
+						id="name"
+						v-bind="field"
+						class="form-input"
+						type="text"
+						:placeholder="t('namePlaceholder')"
+						:disabled="pending"
+					/>
 
 					<div v-if="meta.validated && !meta.valid" class="form-help-message form-help-message_error">
 						{{ errorMessage }}
@@ -53,14 +62,14 @@ async function handleSubmit(values: any, actions: any) {
 			</Field>
 
 			<Field v-slot="{ field, meta, errorMessage }" v-model="formState.email" name="email">
-				<div class="feedback-contact-form__form-group form-group" :class="{ disabled: pending }">
-					<label class="form-label" for="email">Ваша почта</label>
+				<div class="contact-form__form-group form-group" :class="{ disabled: pending }">
+					<label class="form-label" for="email">{{ t('emailField') }}</label>
 					<input
 						id="email"
 						v-bind="field"
 						class="form-input"
 						type="email"
-						placeholder="example@mail.com"
+						:placeholder="t('emailPlaceholder')"
 						:disabled="pending"
 					/>
 
@@ -71,14 +80,14 @@ async function handleSubmit(values: any, actions: any) {
 			</Field>
 
 			<Field v-slot="{ field, meta, errorMessage }" v-model="formState.message" name="message">
-				<div class="feedback-contact-form__form-group form-group" :class="{ disabled: pending }">
-					<label class="form-label" for="message">Сообщение</label>
+				<div class="contact-form__form-group form-group" :class="{ disabled: pending }">
+					<label class="form-label" for="message">{{ t('messageField') }}</label>
 					<textarea
 						id="message"
 						v-bind="field"
 						class="form-textrea"
 						name="message"
-						placeholder="Ваше сообщение"
+						:placeholder="t('messagePlaceholder')"
 						:disabled="pending"
 					></textarea>
 
@@ -88,15 +97,15 @@ async function handleSubmit(values: any, actions: any) {
 				</div>
 			</Field>
 
-			<div class="feedback-contact-form__form-group form-group" :class="{ disabled: pending }">
-				<button class="button" type="submit" :disabled="pending">Отправить</button>
+			<div class="contact-form__form-group form-group" :class="{ disabled: pending }">
+				<button class="button" type="submit" :disabled="pending">{{ t('submit') }}</button>
 			</div>
 		</div>
 	</Form>
 </template>
 
 <style lang="scss" scoped>
-.feedback-contact-form {
+.contact-form {
 	display: block;
 	width: 100%;
 

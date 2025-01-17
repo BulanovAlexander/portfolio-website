@@ -4,7 +4,14 @@ export default defineNuxtConfig({
 	compatibilityDate: '2024-11-01',
 	devtools: { enabled: true },
 
-	modules: ['@nuxtjs/eslint-module', '@nuxtjs/stylelint-module', '@pinia/nuxt', '@vee-validate/nuxt', 'nuxt-icons'],
+	modules: [
+		'@nuxtjs/eslint-module',
+		'@nuxtjs/stylelint-module',
+		'@nuxtjs/i18n',
+		'@pinia/nuxt',
+		'@vee-validate/nuxt',
+		'nuxt-icons'
+	],
 
 	css: ['normalize.css', 'vue-final-modal/style.css', '~/assets/scss/main.scss'],
 
@@ -68,6 +75,18 @@ export default defineNuxtConfig({
 					content: '#ffffff'
 				}
 			]
+		}
+	},
+
+	i18n: {
+		vueI18n: './i18n.config.ts',
+		strategy: 'prefix_except_default',
+		locales: ['en', 'ru'],
+		defaultLocale: 'ru',
+		detectBrowserLanguage: {
+			useCookie: true,
+			cookieCrossOrigin: true,
+			redirectOn: 'root'
 		}
 	}
 })

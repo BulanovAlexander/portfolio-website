@@ -4,7 +4,10 @@
 	<header class="header lock-padding">
 		<div class="header__wrapper">
 			<AppHeaderLogo />
-			<AppHeaderMenu />
+			<div class="header__control">
+				<AppHeaderMenu />
+				<AppHeaderLocale />
+			</div>
 		</div>
 	</header>
 </template>
@@ -49,6 +52,19 @@
 
 		@media screen and (min-width: $lg) {
 			justify-content: flex-start;
+		}
+	}
+
+	&__control {
+		display: flex;
+		flex-direction: row-reverse;
+		align-items: center;
+
+		@media screen and (min-width: $lg) {
+			width: 100%;
+			height: 100%;
+			flex-direction: row;
+			justify-content: space-between;
 		}
 	}
 }

@@ -2,13 +2,20 @@ export default defineEventHandler(async event => {
 	const runtimeConfig = useRuntimeConfig()
 	const datoCmsUrl = runtimeConfig.public.datoCmsUrl as string
 	const publishToken = runtimeConfig.public.datoCmsReadOnlyPublishToken as string
+	const locale = getCookie(event, 'i18n_redirected') || 'ru'
 
 	const graphqlQuery = `{
 		contactPage {
-			_seoMetaTags(locale: ru) {
+			_seoMetaTags(locale: ${locale}) {
 				content
 				tag
 				attributes
+			}
+			hero(locale: ${locale}) {
+				title
+				text {
+					value
+				}
 			}
 		}
 	}`

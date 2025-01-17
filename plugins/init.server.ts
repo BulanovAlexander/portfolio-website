@@ -8,9 +8,5 @@ export default defineNuxtPlugin(async nuxtApp => {
 	const setup = storeSetup(pinia)
 	const layout = storeLayout(pinia)
 
-	try {
-		await Promise.all([setup.fetch(), layout.fetch()])
-	} catch (error) {
-		console.error('Ошибка при загрузке:', error)
-	}
+	await Promise.all([setup.fetch(), layout.fetch()])
 })

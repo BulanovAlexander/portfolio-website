@@ -6,6 +6,7 @@ interface Props {
 }
 
 defineProps<Props>()
+const { t } = useI18n()
 </script>
 
 <template>
@@ -16,7 +17,7 @@ defineProps<Props>()
 					<PostFeedCard v-for="post in posts" :key="post.id" :post="post" />
 				</template>
 				<template v-else>
-					<h2 class="typo-h2">Здесь пока ничего нет</h2>
+					<h2 class="typo-h2">{{ t('emptyPlaceholder') }}</h2>
 				</template>
 			</div>
 		</div>
