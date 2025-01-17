@@ -12,6 +12,8 @@ const { slug, title, description, preview } = props.project
 const panelHeaderTitle = computed<string>(() => `${slug}.html`)
 const linkTo = computed<string>(() => `/portfolio/${slug}/`)
 const { t } = useI18n()
+// 👇 Use Nuxt I18n's auto-imported composable
+const localePath = useLocalePath()
 </script>
 
 <template>
@@ -27,7 +29,7 @@ const { t } = useI18n()
 		<template #default>
 			<h3 class="recent-project-card__title typo-h3">{{ title }}</h3>
 			<DatocmsStructuredText class="recent-project-card__text" :data="description" />
-			<NuxtLink class="recent-project-card__button button" :to="linkTo">
+			<NuxtLink class="recent-project-card__button button" :to="localePath(linkTo)">
 				{{ t('projectDetails') }}
 			</NuxtLink>
 		</template>
