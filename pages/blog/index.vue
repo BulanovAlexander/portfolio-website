@@ -7,8 +7,10 @@ const { setup } = storeSetup()
 const route = useRoute()
 const query = ref(route.query)
 
+const headers = useRequestHeaders(['cookie'])
 const { data, error, status, refresh } = await useAsyncData('blog', () =>
 	$fetch('/api/blog/', {
+		headers,
 		query: query.value
 	})
 )

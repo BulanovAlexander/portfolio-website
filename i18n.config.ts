@@ -22,7 +22,9 @@ export default defineI18nConfig(() => ({
 			successSendTitle: 'Thank you for writing!',
 			successSendText: 'The answer will appear in your mailbox soon.',
 			failureTitle: 'Error',
-			failureSendTitle: 'Error'
+			failureSendTitle: 'Error',
+			allProjects: 'All projects',
+			backToProjects: 'Back to projects'
 		},
 		ru: {
 			firstPage: 'Первая',
@@ -45,7 +47,9 @@ export default defineI18nConfig(() => ({
 			successSendTitle: 'Спасибо, что написали!',
 			successSendText: 'Ответ скоро появится в вашем почтовом ящике.',
 			failureTitle: 'Ошибка',
-			failuresendTitle: 'Ошибка'
+			failuresendTitle: 'Ошибка',
+			allProjects: 'Все проекты',
+			backToProjects: 'Вернуться к проектам'
 		}
 	}
 }))

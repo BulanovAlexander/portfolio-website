@@ -19,7 +19,8 @@ export const storeLayout = defineStore('layout', {
 
 	actions: {
 		async fetch() {
-			const { layout } = await $fetch('/api/layout/')
+			const headers = useRequestHeaders(['cookie'])
+			const { layout } = await $fetch('/api/layout/', { headers })
 
 			const { navigation, copyright } = layout
 

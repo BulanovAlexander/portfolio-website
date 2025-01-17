@@ -8,11 +8,13 @@ interface Props {
 const props = defineProps<Props>()
 const { slug, title } = props.post
 const linkTo = computed<string>(() => `/blog/${slug}/`)
+// 👇 Use Nuxt I18n's auto-imported composable
+const localePath = useLocalePath()
 </script>
 
 <template>
 	<div class="post-card">
-		<NuxtLink class="post-card__link" :to="linkTo">
+		<NuxtLink class="post-card__link" :to="localePath(linkTo)">
 			<div class="post-card__body">{{ title }}</div>
 		</NuxtLink>
 	</div>

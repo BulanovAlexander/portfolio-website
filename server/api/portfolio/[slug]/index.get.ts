@@ -3,9 +3,10 @@ export default defineEventHandler(async event => {
 	const datoCmsUrl = runtimeConfig.public.datoCmsUrl as string
 	const publishToken = runtimeConfig.public.datoCmsReadOnlyPublishToken as string
 	const slug = getRouterParam(event, 'slug')
+	const locale = getCookie(event, 'i18n_redirected') || 'ru'
 
 	const graphqlQuery = `{
-		projectPost(filter: {slug: {eq: "${slug}"}}) {
+		projectPost(locale: ${locale}, filter: {slug: {eq: "${slug}"}}) {
 			id
 			_createdAt
 			slug

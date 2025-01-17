@@ -1,7 +1,7 @@
 import { useModal, useModalSlot } from 'vue-final-modal'
 import { h } from 'vue'
 
-import AppModal from '/components/AppModal.vue'
+import AppModal from '~/components/AppModal.vue'
 
 export default function useUIModal() {
 	// const { closeAll } = useVfm()

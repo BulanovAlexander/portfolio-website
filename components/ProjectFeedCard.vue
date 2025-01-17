@@ -6,13 +6,16 @@ interface Props {
 }
 
 const props = defineProps<Props>()
-
+const { slug } = props.project
+const linkTo = computed<string>(() => `/portfolio/${slug}/`)
 const categories = computed<string>(() => props.project.categories.map(category => category.label).join(', '))
+// 👇 Use Nuxt I18n's auto-imported composable
+const localePath = useLocalePath()
 </script>
 
 <template>
 	<div class="project-card">
-		<NuxtLink class="project-card__link" :to="`/portfolio/${project.slug}/`">
+		<NuxtLink class="project-card__link" :to="localePath(linkTo)">
 			<div class="project-card__body">
 				<div>
 					{{ project.title }}

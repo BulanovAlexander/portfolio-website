@@ -2,7 +2,8 @@
 import { StructuredText as DatocmsStructuredText } from 'vue-datocms'
 
 const route = useRoute()
-const { data, error } = await useAsyncData('post', () => $fetch(`/api/blog/${route.params.slug}/`))
+const headers = useRequestHeaders(['cookie'])
+const { data, error } = await useAsyncData('post', () => $fetch(`/api/blog/${route.params.slug}/`, { headers }))
 
 if (error.value) {
 	throw createError({

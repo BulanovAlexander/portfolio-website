@@ -2,7 +2,8 @@
 import { StructuredText as DatocmsStructuredText } from 'vue-datocms'
 const route = useRoute()
 
-const { data, error } = await useAsyncData('project', () => $fetch(`/api/portfolio/${route.params.slug}/`))
+const headers = useRequestHeaders(['cookie'])
+const { data, error } = await useAsyncData('project', () => $fetch(`/api/portfolio/${route.params.slug}/`, { headers }))
 
 if (error.value) {
 	throw createError({
@@ -16,7 +17,10 @@ const { slug, preview, text } = data.value.projectPost
 
 const panelHeaderTitle = computed<string>(() => `${slug}.html`)
 const { renderBlock } = useDatoRender()
-const router = useRouter()
+
+// 👇 Use Nuxt I18n's auto-imported composable
+const localePath = useLocalePath()
+const { t } = useI18n()
 </script>
 
 <template>
@@ -43,9 +47,9 @@ const router = useRouter()
 
 		<PageSection small>
 			<PageSectionHeader>
-				<h2 class="typo-h2">Все проекты</h2>
+				<h2 class="typo-h2">{{ t('allProjects') }}</h2>
 
-				<NuxtLink class="typo-link" to="/" @click.prevent="router.go(-1)">Назад к проектам</NuxtLink>
+				<NuxtLink class="typo-link" :to="localePath('/portfolio/')">{{ t('backToProjects') }}</NuxtLink>
 			</PageSectionHeader>
 		</PageSection>
 	</main>
