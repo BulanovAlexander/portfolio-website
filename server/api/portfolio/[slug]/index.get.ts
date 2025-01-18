@@ -19,6 +19,7 @@ export default defineEventHandler(async event => {
 			technologies {
 				id
 				label
+				logo
 			}
 			text {
 				value
@@ -30,6 +31,14 @@ export default defineEventHandler(async event => {
 							id
 							url
 							alt
+						}
+					}
+					... on StackRecord {
+						id
+						technologies {
+							id
+							label
+							logo
 						}
 					}
 				}
