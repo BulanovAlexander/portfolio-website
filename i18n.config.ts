@@ -24,7 +24,8 @@ export default defineI18nConfig(() => ({
 			failureTitle: 'Error',
 			failureSendTitle: 'Error',
 			allProjects: 'All projects',
-			backToProjects: 'Back to projects'
+			backToProjects: 'Back to projects',
+			backToHome: 'Back to home'
 		},
 		ru: {
 			firstPage: 'Первая',
@@ -49,7 +50,8 @@ export default defineI18nConfig(() => ({
 			failureTitle: 'Ошибка',
 			failuresendTitle: 'Ошибка',
 			allProjects: 'Все проекты',
-			backToProjects: 'Вернуться к проектам'
+			backToProjects: 'Вернуться к проектам',
+			backToHome: 'Вернуться на главную'
 		}
 	}
 }))
