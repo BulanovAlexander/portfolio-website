@@ -126,7 +126,7 @@ function handleChangePage(page: number): void {
 .ui-pagination {
 	display: flex;
 	justify-content: center;
-	padding: 60px 0 0;
+	padding: 24px 0 0;
 	text-align: center;
 	list-style: none;
 
@@ -160,7 +160,7 @@ function handleChangePage(page: number): void {
 	&__link {
 		display: flex;
 		align-items: center;
-		color: var(--color-theme);
+		color: var(--color-text-90);
 		line-height: 1;
 		text-decoration: none;
 		transition-property: color;

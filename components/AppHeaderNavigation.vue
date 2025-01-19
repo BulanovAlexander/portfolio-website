@@ -2,7 +2,6 @@
 import { storeLayout } from '~/stores/storeLayout'
 
 const { navigation } = storeToRefs(storeLayout())
-// 👇 Use Nuxt I18n's auto-imported composable
 const localePath = useLocalePath()
 function handleDropdownToggle(event: Event) {
 	const toggle = event.target as HTMLElement

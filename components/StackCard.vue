@@ -9,18 +9,18 @@ defineProps<Props>()
 </script>
 
 <template>
-	<div class="project-stack">
-		<div class="project-stack__wrapper">
-			<div v-for="technology in technologies" :key="technology.id" class="project-stack__technology">
-				<img class="project-stack__technology-logo" :src="technology.logo" alt="" />
-				<span class="project-stack__technology-label">{{ technology.label }}</span>
+	<div class="stack-card">
+		<div class="stack-card__wrapper">
+			<div v-for="technology in technologies" :key="technology.id" class="stack-card__technology">
+				<img class="stack-card__logo" :src="technology.logo" alt="" />
+				<span class="stack-card__label">{{ technology.label }}</span>
 			</div>
 		</div>
 	</div>
 </template>
 
 <style lang="scss" scoped>
-.project-stack {
+.stack-card {
 	&__wrapper {
 		margin: -4px -8px;
 		display: flex;
@@ -34,7 +34,7 @@ defineProps<Props>()
 		align-items: center;
 	}
 
-	&__technology-logo {
+	&__logo {
 		margin: 0 8px 0 0;
 		max-width: 24px;
 		min-width: 24px;
@@ -42,7 +42,7 @@ defineProps<Props>()
 		flex-shrink: 0;
 	}
 
-	&__technology-label {
+	&__label {
 		font-size: 16px;
 		font-weight: 600;
 		line-height: 24px;

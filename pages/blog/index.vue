@@ -41,7 +41,7 @@ watch(
 	}
 )
 
-const { _seoMetaTags } = data.value.blogPage
+const { _seoMetaTags, hero } = data.value.blogPage
 
 useHead(() => {
 	if (!data.value) return {}
@@ -52,8 +52,9 @@ useHead(() => {
 
 <template>
 	<main>
-		<PageSection>
-			<PostFeed :posts="fetchBlogPosts" />
+		<BlogHero :content="hero" />
+		<PageSection pattern>
+			<BlogFeed :posts="fetchBlogPosts" />
 			<UIPagination v-if="pageTotal > 1" :page-total="pageTotal" :is-loading="isLoading" />
 		</PageSection>
 	</main>

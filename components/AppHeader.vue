@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
 	<header class="header lock-padding">
 		<div class="header__wrapper">

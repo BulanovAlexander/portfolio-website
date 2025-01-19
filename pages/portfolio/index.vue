@@ -41,7 +41,7 @@ watch(
 	}
 )
 
-const { _seoMetaTags } = data.value.portfolioPage
+const { _seoMetaTags, hero } = data.value.portfolioPage
 
 useHead(() => {
 	if (!data.value) return {}
@@ -52,8 +52,9 @@ useHead(() => {
 
 <template>
 	<main>
-		<PageSection>
-			<ProjectFeed :projects="fetchProjectPosts" />
+		<PortfolioHero :content="hero" />
+		<PageSection pattern>
+			<PortfolioFeed :projects="fetchProjectPosts" />
 			<UIPagination v-if="pageTotal > 1" :page-total="pageTotal" :is-loading="isLoading" />
 		</PageSection>
 	</main>

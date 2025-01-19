@@ -16,7 +16,6 @@ const { title, text } = props.content
 const panelHeaderTitle = computed<string>(() => `contact.html`)
 
 const { renderBlock } = useDatoRender()
-
 const { t } = useI18n()
 const { openSuccessModal, openFailureModal } = useFinalModal()
 
@@ -38,10 +37,12 @@ function handleSubmitSuccess(): void {
 				</template>
 
 				<template #default>
-					<h2 class="contact-hero__title typo-h2">{{ title }}</h2>
-					<DatocmsStructuredText class="contact-hero__text typo-p2" :data="text" :render-block="renderBlock" />
+					<div class="container">
+						<h2 class="contact-hero__title typo-h2">{{ title }}</h2>
+						<DatocmsStructuredText class="contact-hero__text typo-p2" :data="text" :render-block="renderBlock" />
 
-					<ContactForm @submit-success="handleSubmitSuccess" @submit-failure="handleSubmitFailure" />
+						<ContactForm @submit-success="handleSubmitSuccess" @submit-failure="handleSubmitFailure" />
+					</div>
 				</template>
 			</WindowPanel>
 		</div>

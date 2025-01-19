@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// TODO: Компонент в разработке
 const options = [
 	{
 		label: 'Показать по 4',

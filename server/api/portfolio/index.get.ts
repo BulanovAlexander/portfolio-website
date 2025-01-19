@@ -18,7 +18,17 @@ export default defineEventHandler(async event => {
 				tag
 				attributes
 			}
-    		title
+			hero {
+				title
+				text {
+					value
+				}
+				button {
+					id
+					label
+					to
+				}
+			}
 		}
 		_allProjectPostsMeta(filter: {}) {
 			count

@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
 	<div class="window-panel">
 		<slot v-if="$slots.header" name="header" />
@@ -14,6 +12,8 @@
 <style lang="scss" scoped>
 .window-panel {
 	border: 4px solid var(--color-text);
+	display: flex;
+	flex-direction: column;
 	background-color: var(--color-bg);
 	box-shadow: 8px 8px 0 0 var(--color-text);
 
@@ -23,6 +23,7 @@
 		flex-direction: column;
 		align-items: flex-start;
 		justify-content: space-between;
+		flex-grow: 1;
 		padding: 20px;
 
 		@media screen and (min-width: $sm) {

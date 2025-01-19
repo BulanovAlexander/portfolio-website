@@ -18,6 +18,17 @@ export default defineEventHandler(async event => {
 				tag
 				attributes
 			}
+			hero {
+				title
+				text {
+					value
+				}
+				button {
+					id
+					label
+					to
+				}
+			}
         }
         _allBlogPostsMeta {
             count

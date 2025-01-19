@@ -1,20 +1,21 @@
 <script setup lang="ts">
-import type { Project } from '~/types/Project'
+import type { Post } from '~/types/Post'
 
 interface Props {
-	projects: Project[]
+	posts: Post[]
 }
 
 defineProps<Props>()
+
 const { t } = useI18n()
 </script>
 
 <template>
-	<div class="project-feed">
+	<div class="blog-feed">
 		<div class="container">
-			<div class="project-feed__wrapper">
-				<template v-if="projects.length > 0">
-					<ProjectFeedCard v-for="project in projects" :key="project.id" :project="project" />
+			<div class="blog-feed__wrapper">
+				<template v-if="posts.length > 0">
+					<BlogCard v-for="post in posts" :key="post.id" :post="post" />
 				</template>
 				<template v-else>
 					<h2 class="typo-h2">{{ t('emptyPlaceholder') }}</h2>
@@ -25,7 +26,7 @@ const { t } = useI18n()
 </template>
 
 <style lang="scss" scoped>
-.project-feed {
+.blog-feed {
 	&__wrapper {
 		& > * + * {
 			margin-top: 36px;

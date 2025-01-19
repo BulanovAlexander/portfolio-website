@@ -26,6 +26,6 @@ useHead(() => {
 		<HomeHero :content="hero">
 			<HomeHeroQuickLinks :content="quick" />
 		</HomeHero>
-		<RecentProjects :content="recent" />
+		<HomeRecents :content="recent" />
 	</main>
 </template>

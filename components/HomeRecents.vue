@@ -66,16 +66,16 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-	<PageSection class="recent-projects" pattern>
-		<div class="recent-projects__container scroll-trigger">
-			<PageSectionHeader class="recent-projects__header">
+	<PageSection class="home-recents" pattern>
+		<div class="home-recents__container scroll-trigger">
+			<PageSectionHeader class="home-recents__header">
 				<h2 class="typo-h2">{{ title }}</h2>
 			</PageSectionHeader>
 
 			<div class="container">
-				<div class="recent-projects__wrapper">
-					<div v-for="project in projects" :key="project.id" class="recent-projects__slide scroll-slide">
-						<RecentProjectsCard class="recent-projects__project" :project="project" />
+				<div class="home-recents__wrapper">
+					<div v-for="project in projects" :key="project.id" class="home-recents__slide scroll-slide">
+						<ProjectCard class="home-recents__project" :project="project" />
 					</div>
 				</div>
 			</div>
@@ -84,11 +84,11 @@ onBeforeUnmount(() => {
 </template>
 
 <style lang="scss" scoped>
-.recent-projects.section {
+.home-recents.section {
 	padding-top: 146px;
 }
 
-.recent-projects {
+.home-recents {
 	&__container {
 		overflow: hidden;
 	}

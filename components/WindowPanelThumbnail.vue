@@ -11,7 +11,7 @@ const { url: thumbnailUrl, alt: thumbnailAlt } = props.thumbnail
 
 <template>
 	<div class="window-panel-thumbnail">
-		<img class="window-panel-thumbnail__img" :src="thumbnailUrl" width="280" height="160" :alt="thumbnailAlt" />
+		<img class="window-panel-thumbnail__img" :src="thumbnailUrl" width="280" height="160" :alt="thumbnailAlt || ''" />
 	</div>
 </template>
 

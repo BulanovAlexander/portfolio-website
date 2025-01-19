@@ -17,8 +17,6 @@ const { slug, preview, text } = data.value.projectPost
 
 const panelHeaderTitle = computed<string>(() => `${slug}.html`)
 const { renderBlock } = useDatoRender()
-
-// 👇 Use Nuxt I18n's auto-imported composable
 const localePath = useLocalePath()
 const { t } = useI18n()
 </script>

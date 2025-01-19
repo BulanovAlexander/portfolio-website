@@ -1,5 +1,5 @@
 import { h } from 'vue'
-import ProjectStack from '~/components/ProjectStack.vue'
+import StackCard from '~/components/StackCard.vue'
 
 export default function useDatoRender() {
 	const renderBlock = (context: any) => {
@@ -10,7 +10,7 @@ export default function useDatoRender() {
 		}
 
 		if (record.__typename === 'StackRecord') {
-			return h(ProjectStack, { technologies: record.technologies })
+			return h(StackCard, { technologies: record.technologies })
 		}
 
 		return null

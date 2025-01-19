@@ -7,17 +7,18 @@ interface Props {
 }
 
 const props = defineProps<Props>()
-
 const { slug, title, description, preview } = props.project
-const panelHeaderTitle = computed<string>(() => `${slug}.html`)
-const linkTo = computed<string>(() => `/portfolio/${slug}/`)
+
 const { t } = useI18n()
-// 👇 Use Nuxt I18n's auto-imported composable
 const localePath = useLocalePath()
+
+const panelHeaderTitle = computed<string>(() => `${slug}.html`)
+const linkTo = computed<string>(() => localePath(`/portfolio/${slug}/`))
+// const categories = computed<string>(() => props.project.categories.map(category => category.label).join(', '))
 </script>
 
 <template>
-	<WindowPanel class="recent-project-card">
+	<WindowPanel class="project-card">
 		<template #header>
 			<WindowPanelHeader :title="panelHeaderTitle" />
 		</template>
@@ -27,9 +28,12 @@ const localePath = useLocalePath()
 		</template>
 
 		<template #default>
-			<h3 class="recent-project-card__title typo-h3">{{ title }}</h3>
-			<DatocmsStructuredText class="recent-project-card__text" :data="description" />
-			<NuxtLink class="recent-project-card__button button" :to="localePath(linkTo)">
+			<h3 class="project-card__title typo-h3">
+				{{ title }}
+			</h3>
+
+			<DatocmsStructuredText class="project-card__text" :data="description" />
+			<NuxtLink class="project-card__button button" :to="linkTo">
 				{{ t('projectDetails') }}
 			</NuxtLink>
 		</template>
@@ -39,7 +43,7 @@ const localePath = useLocalePath()
 <style lang="scss" scoped>
 @use '~/assets/scss/abstracts/mixins' as *;
 
-.recent-project-card {
+.project-card {
 	width: 100%;
 	height: 100%;
 
@@ -47,8 +51,16 @@ const localePath = useLocalePath()
 		margin: 0 0 10px;
 	}
 
+	&__categories {
+		margin: 0 0 24px;
+	}
+
 	&__text {
 		margin: 0 0 24px;
+	}
+
+	&__button {
+		margin: auto 0 0;
 	}
 }
 </style>

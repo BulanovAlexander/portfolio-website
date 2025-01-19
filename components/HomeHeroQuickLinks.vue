@@ -10,7 +10,7 @@ interface Props {
 
 const props = defineProps<Props>()
 const { title, links } = props.content
-// 👇 Use Nuxt I18n's auto-imported composable
+
 const localePath = useLocalePath()
 </script>
 
