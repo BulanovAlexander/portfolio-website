@@ -5,8 +5,8 @@ export default defineEventHandler(async event => {
 	const locale = getCookie(event, 'i18n_redirected') || 'ru'
 
 	const graphqlQuery = `{
-		contactPage {
-			_seoMetaTags(locale: ${locale}) {
+		contactPage(locale: ${locale}) {
+			_seoMetaTags {
 				content
 				tag
 				attributes

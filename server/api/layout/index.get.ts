@@ -5,8 +5,8 @@ export default defineEventHandler(async event => {
 	const locale = getCookie(event, 'i18n_redirected') || 'ru'
 
 	const graphqlQuery = `{
-		layout {
-			navigation(locale: ${locale}) {
+		layout(locale: ${locale}) {
+			navigation {
 				id
 				label
 				to
@@ -16,7 +16,7 @@ export default defineEventHandler(async event => {
 					to
 				}
 			}
-			copyright(locale: ${locale})
+			copyright
 		}
     }`
 

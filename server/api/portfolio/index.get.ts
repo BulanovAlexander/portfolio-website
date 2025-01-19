@@ -12,12 +12,13 @@ export default defineEventHandler(async event => {
 	const locale = getCookie(event, 'i18n_redirected') || 'ru'
 
 	const graphqlQuery = `{
-	  	portfolioPage {
-			_seoMetaTags(locale: ${locale}) {
+	  	portfolioPage(locale: ${locale}) {
+			_seoMetaTags {
 				content
 				tag
 				attributes
 			}
+    		title
 		}
 		_allProjectPostsMeta(filter: {}) {
 			count

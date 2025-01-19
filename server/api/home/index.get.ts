@@ -5,13 +5,13 @@ export default defineEventHandler(async event => {
 	const locale = getCookie(event, 'i18n_redirected') || 'ru'
 
 	const graphqlQuery = `{
-		homePage {
-			_seoMetaTags(locale: ${locale}) {
+		homePage(locale: ${locale}) {
+			_seoMetaTags {
 				content
 				tag
 				attributes
 			}
-			hero(locale: ${locale}) {
+			hero {
 				title
 				text {
 					value
@@ -22,7 +22,7 @@ export default defineEventHandler(async event => {
 					to
 				}
 			}
-			quick(locale: ${locale}) {
+			quick {
 				title
 				links {
 					id
@@ -30,7 +30,7 @@ export default defineEventHandler(async event => {
 					to
 				}
 			}
-			recent(locale: ${locale}) {
+			recent {
 				title
 				projects {
 					id
